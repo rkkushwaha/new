@@ -1,7 +1,3 @@
-# new
-OS
-#include<stdio.h>
-int main()
-{
-printf("Hello world");
-}
+Implement the multi-level feedback queue scheduling algorithm by
+considering the following diagram. You can use the code of others to
+implement Round-Robin, and FCFS but implement aging by your own self.
