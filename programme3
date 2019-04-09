@@ -97,7 +97,7 @@ int main()
 	 for(i=0;i<limit;i++)
      {
      	printf("Process :%d - %d",i,cm[i]);
-        printf("\n");
+        printf("\n ");
 	 }
 	 
 	 
