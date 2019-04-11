@@ -1,0 +1,138 @@
+#include<stdio.h> 
+int main() 
+{ 
+     int limit,i,c=0,ts=0,ws=0;
+     int a[10],b[10],p,m[10],w[10],t[10],bc[10];
+     int cm[10]={0};
+     double v,vs;
+    
+     
+     printf("Enter number of Process \n");
+     scanf("%d",&limit);
+     
+     for(i=0;i<limit;i++)
+     {
+     	printf("For Process id : %d\n",i);
+     	printf("Enter Burst Time : ");
+     	scanf("%d",&b[i]);
+        a[i]=0;
+     	printf("\n");
+	 }
+	 
+	 
+	 for(i=0;i<limit;i++)
+	 {
+	 	bc[i]=b[i];
+	 }
+     	printf("Simple gantt Chart \n");
+	 
+	// Q1=8
+	
+	 for(i=0;i<limit;i++)
+     {
+     	
+     
+     if(b[i]<=8)
+     {
+     	c=c+8;
+     	cm[i]=c;
+     	printf("P%d : %d \n",i,c);
+	 }
+	 
+	 
+	 else
+	 {
+	 	b[i]=b[i]-8;
+	 	c=c+8;
+	 	printf("P%d : %d \n",i,c);
+	 }
+	 
+	 
+	 }
+	 
+	
+    
+     
+	 
+	 	// Q2=16
+	
+	
+	 for(i=0;i<limit;i++)
+     {
+     
+     
+     if(cm[i]==0)
+	 {
+	 	
+	 	
+	 	
+     
+     if(b[i]<=16)
+     {
+     	c=c+b[i];
+     	cm[i]=c;
+     	printf("P%d : %d \n",i,c);
+	 }
+	 
+	 
+	 else
+	 {
+	 	b[i]=b[i]-16;
+	 	c=c+16;
+	 	printf("P%d : %d \n",i,c);
+	 }
+	 
+	 
+	 }
+	 
+    }
+	 
+    
+	//Q3 FCFS
+	for(i=0;i<limit;i++)
+	{
+		if(cm[i]==0)
+		{
+			c=c+b[i];
+			cm[i]=c;
+			printf("P%d : %d \n",i,c);
+		}
+	}
+	
+
+     printf("\nCompletion Time \n");
+	 for(i=0;i<limit;i++)
+     {
+     	printf("P%d - %d",i,cm[i]);
+        printf("\n");
+	 }
+	 
+	 printf("\nTurn Around Time \n");
+	for(i=0;i<limit;i++)
+     {
+     	t[i]=cm[i]-a[i];
+     	printf("P%d : %d\n",i,t[i]);
+     	ts=ts+t[i];
+	 }
+
+	    v=ts/(float)limit;
+     	printf("Average Turn around time %f: ",v);
+     	printf("\n");
+	
+	
+	 
+	  printf("\nWaiting Time \n");
+	for(i=0;i<limit;i++)
+     {
+     	w[i]=t[i]-bc[i];
+     	printf("P%d : %d\n",i,w[i]);
+     	ws=ws+w[i];
+	 }
+
+	    vs=ws/(float)limit;
+     	printf("Average Waiting time %f: ",vs);
+     	printf("\n");
+	 
+	 
+	 
+}
